@@ -3,9 +3,9 @@ set -euxo pipefail
 
 # see https://github.com/ansible/awx/releases
 # TODO see how to use this in the AWX CRD.
-awx_version='21.4.0'
+awx_version='24.6.1'
 # see https://github.com/ansible/awx-operator/releases
-awx_operator_chart_version='0.25.0'
+awx_operator_chart_version='2.19.1'
 
 # settings.
 awx_namespace='awx'
@@ -16,7 +16,7 @@ awx_name='awx-demo'
 # see https://ansible.github.io/awx-operator/index.yaml
 #     https://github.com/ansible/awx-operator/releases/download/0.25.0/awx-operator-0.25.0.tgz
 # see helm search repo awx-operator
-helm repo add awx-operator https://ansible.github.io/awx-operator/
+helm repo add awx-operator https://ansible-community.github.io/awx-operator-helm/
 helm repo update
 helm search repo awx-operator/awx-operator --versions | head -5
 helm show all --version $awx_operator_chart_version awx-operator/awx-operator
